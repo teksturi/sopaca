@@ -1,0 +1,31 @@
+# SPDX-FileCopyrightText: 2022 Kari Argillander
+#
+# SPDX-License-Identifier: CC0-1.0
+
+# EditorConfig is awesome: https://EditorConfig.org
+root = true
+
+[*]
+end_of_line = lf
+insert_final_newline = true
+charset = utf-8
+indent_style = space
+indent_size = 4
+trim_trailing_whitespace = true
+
+[*.rst]
+indent_size = 3
+
+[*.yaml]
+indent_size = 2
+
+[Makefile]
+indent_style = unset
+
+# We do not use markdown so much that we should not trim trailing whitespaces.
+# If we have need for trailing whitespaces exclude those specific files.
+[example.md]
+trim_trailing_whitespace = false
+
+[LICENSES/*]
+indent_size = unset

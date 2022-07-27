@@ -1,0 +1,14 @@
+# SPDX-FileCopyrightText: 2022 Kari Argillander
+#
+# SPDX-License-Identifier: CC0-1.0
+
+# If we ever need to do some cleanup work we can add commits to this file so
+# these will not show up when using git blame. This is usuful for exmaple when
+# we start using newer Black version or maybe we start use some other formatter
+# which
+#
+# You can make this global thing in your computer or just remove --global so it
+# is just for this project.
+#
+# git config --global blame.ignoreRevsFile .git-blame-ignore-revs
+#

@@ -1,0 +1,10 @@
+copyrightable
+GPL
+isort
+Pre
+pre
+pre-commit
+reStructuredText
+Sopaca
+Tox
+txt

@@ -1,0 +1,10 @@
+# SPDX-FileCopyrightText: 2022 Kari Argillander
+#
+# SPDX-License-Identifier: CC0-1.0
+
+pyenchant
+sphinx>=5.0.0
+sphinx-copybutton
+sphinx-design
+sphinx-rtd-theme~=1.0
+sphinxcontrib-spelling

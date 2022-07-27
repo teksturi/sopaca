@@ -1,0 +1,75 @@
+# SPDX-FileCopyrightText: 2022 Kari Argillander
+#
+# SPDX-License-Identifier: CC0-1.0
+
+on:
+  push:
+    branches: [
+      main,
+    ]
+    tags:
+    - 'v*'
+    pull_request:
+
+jobs:
+  pre-commit:
+    name: Run Pre-commit
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout source code
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - name: Install python
+      uses: actions/setup-python@v4
+
+    - name: Run Pre-commit
+      uses: pre-commit/action@v3
+
+  test:
+    name: Build and run unittests
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout source code
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - name: Install Python dependencies
+      run: python -m pip install tox codecov
+
+    - name:
+
+    - name: Run unit tests (via tox)
+      run: tox
+
+  docs:
+    name: Build docs
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout source code
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - name: Install Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+        cache: 'pip'
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get install -y libenchant-2-dev
+        python -m pip install tox
+
+    - name: Build docs (via tox)
+      run: tox -e docs
+
+    - name: Archive build results
+      uses: actions/upload-artifact@v3
+      with:
+        name: html-docs-build
+        path: docs/_build/html
+        retention-days: 7

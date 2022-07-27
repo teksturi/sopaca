@@ -1,0 +1,12 @@
+# SPDX-FileCopyrightText: 2022 Kari Argillander
+#
+# SPDX-License-Identifier: CC0-1.0
+
+# When Flake8 supports pyproject.toml natively we convert to that. See why this
+# is not the case yet https://pypi.org/project/Flake8-pyproject/
+
+# See https://black.readthedocs.io/en/stable/the_black_code_style/current_style.html#line-length
+[flake8]
+max-line-length = 80
+select = C,E,F,W,B,B950
+extend-ignore = E203, E501

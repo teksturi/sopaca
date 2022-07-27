@@ -1,0 +1,41 @@
+# SPDX-FileCopyrightText: 2022 Kari Argillander
+#
+# SPDX-License-Identifier: CC0-1.0
+
+repos:
+- repo: https://github.com/editorconfig-checker/editorconfig-checker.python
+  rev: 97461803b9d2cf5f70323ae0058e3447355c8927 #2.4.0
+  hooks:
+  - id: editorconfig-checker
+    alias: ec
+
+- repo: https://github.com/psf/black
+  rev: f6c139c5215ce04fd3e73a900f1372942d58eca0 #22.6.0
+  hooks:
+  - id: black
+    language_version: python3
+
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: 3298ddab3c13dd77d6ce1fc0baf97691430d84b0 #v4.3.0
+  hooks:
+  - id: check-yaml
+  - id: check-case-conflict
+  - id: requirements-txt-fixer
+  # Editorconfig-checker will pass if we have many new lines at the end of file.
+  # So we want to check this also in here.
+  - id: end-of-file-fixer
+  - id: check-merge-conflict
+    args: [
+      --assume-in-merge
+    ]
+  - id: file-contents-sorter
+    files: ^(docs/spelling_wordlist.txt)$
+    args: [
+      --unique,
+      --ignore-case,
+    ]
+
+- repo: https://github.com/fsfe/reuse-tool
+  rev: b0fd725328e42d98f6c8e60d2d3587dd728bbcc7 #v1.0.0
+  hooks:
+  - id: reuse

@@ -1,0 +1,13 @@
+// SPDX-FileCopyrightText: 2022 Kari Argillander
+//
+// SPDX-License-Identifier: CC0-1.0
+
+{
+    "recommendations": [
+        "editorconfig.editorconfig",
+        "ms-python.python",
+        "ms-python.black-formatter",
+        "bungcip.better-toml",
+        "lextudio.restructuredtext",
+    ]
+}
