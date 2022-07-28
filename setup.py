@@ -9,7 +9,7 @@ setup(
     version="0.0.1",
     author="Kari Argillander",
     description="Website for calculating solar panel savings.",
-    python_requires=">=3.10, <4",
+    python_requires=">=3.8, <4",
     install_requires=[
         "django",
         "pandas",
