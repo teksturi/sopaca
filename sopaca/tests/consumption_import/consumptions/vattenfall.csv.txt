@@ -1,0 +1,13 @@
+# SPDX-FileCopyrightText: 2022 Kari Argillander
+#
+# SPDX-License-Identifier: CC0-1.0
+
+From: omaenergia.vattenfall.fi
+When: 2021-12
+Who: Kari Argillander (kari.argillander@gmail.com)
+Language: Finnish
+
+Changed data:
+* Customer number - 1234567
+* Meter number - 2345678
+* Address - Hämeenkatu 1 A 11 , 33100 TAMPERE

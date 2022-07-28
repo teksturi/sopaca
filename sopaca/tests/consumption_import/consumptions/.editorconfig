@@ -1,0 +1,11 @@
+# SPDX-FileCopyrightText: 2022 Kari Argillander
+#
+# SPDX-License-Identifier: CC0-1.0
+
+[*.csv]
+end_of_line = unset
+insert_final_newline = unset
+charset = unset
+indent_style = unset
+indent_size = unset
+trim_trailing_whitespace = unset
