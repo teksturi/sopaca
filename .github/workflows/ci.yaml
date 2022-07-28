@@ -78,5 +78,5 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: html-docs-build
-        path: docs/_build/html
+        path: docs/_build
         retention-days: 7
