@@ -6,6 +6,7 @@
    :maxdepth: 2
    :hidden:
 
+   deployment.rst
    contributing.rst
    license.rst
 

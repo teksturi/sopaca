@@ -11,7 +11,11 @@ import sys
 
 def main():
     """Run administrative tasks."""
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "sopaca.settings")
+    if os.getenv("DJANGO_SECRET_KEY"):
+        os.environ.setdefault("DJANGO_SETTINGS_MODULE", "sopaca.settings.prod")
+    else:
+        os.environ.setdefault("DJANGO_SETTINGS_MODULE", "sopaca.settings.dev")
+
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:

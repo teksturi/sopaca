@@ -1,10 +1,14 @@
 copyrightable
 GPL
 isort
+localhost
+mysql
+postgres
 Pre
 pre
 pre-commit
 reStructuredText
 Sopaca
+sopaca
 Tox
 txt

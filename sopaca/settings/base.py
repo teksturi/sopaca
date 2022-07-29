@@ -14,22 +14,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-oe&z&d3%*7p#%a@cx5(sp)+@(w8dk3w1r6pg7pu_$6ej80wg-b"
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -78,13 +67,42 @@ WSGI_APPLICATION = "sopaca.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+if os.getenv("DATABASE_TYPE") == "postgres":
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql_psycopg2",
+            "HOST": os.environ.get("DATABASE_HOST", "localhost"),
+            "PORT": os.environ.get("DATABASE_PORT", ""),
+            "NAME": os.environ.get("DATABASE_NAME", "sopaca"),
+            "USER": os.environ.get("DATABASE_USER", "sopaca"),
+            "PASSWORD": os.environ.get("DATABASE_PASSWORD", "password"),
+        },
     }
-}
+elif os.getenv("DATABASE_TYPE") == "mysql":
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.mysql",
+            "HOST": os.getenv("DATABASE_HOST", "localhost"),
+            "PORT": os.getenv("DATABASE_PORT", ""),
+            "NAME": os.getenv("DATABASE_NAME", "sopaca"),
+            "USER": os.getenv("DATABASE_USER", "sopaca"),
+            "PASSWORD": os.getenv("DATABASE_PASSWORD", "password"),
+            "TEST": {
+                "CHARSET": "utf8",
+            },
+        },
+    }
+elif os.getenv("DJANGO_SECRET_KEY"):
+    raise ValueError(
+        "Production use should not use sqlite3. Please set enviroment variable DATABASE_TYPE to postgres/mysql"
+    )
+else:  # Development can use this
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": os.environ.get("DATABASE_NAME", BASE_DIR / "db.sqlite3"),
+        },
+    }
 
 
 # Password validation
