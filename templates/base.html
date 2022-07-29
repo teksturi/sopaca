@@ -1,0 +1,20 @@
+<!--
+SPDX-FileCopyrightText: 2022 Kari Argillander
+
+SPDX-License-Identifier: GPL-2.0-only
+-->
+
+<!doctype html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>{% block title %}Sopaca{% endblock %}</title>
+  </head>
+  <body>
+    {% include 'navbar.html' %}
+
+    {% block content %}
+      Block content base.html is empty!
+    {% endblock %}
+  </body>
+</html>
