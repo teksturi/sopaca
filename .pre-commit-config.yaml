@@ -24,14 +24,17 @@ repos:
   # Editorconfig-checker will pass if we have many new lines at the end of file.
   # So we want to check this also in here.
   - id: end-of-file-fixer
+    exclude: \.(csv)$
+
   - id: check-merge-conflict
     args: [
       --assume-in-merge
     ]
+  # We would like to use unique, but there is bug. See
+  # https://github.com/pre-commit/pre-commit-hooks/issues/794
   - id: file-contents-sorter
     files: ^(docs/spelling_wordlist.txt)$
     args: [
-      --unique,
       --ignore-case,
     ]
 
