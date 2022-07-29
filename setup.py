@@ -15,6 +15,7 @@ setup(
         "django_plotly_dash",
         "pandas",
         "plotly",
+        "geopy",
     ],
     extras_require={
         "dev": [
