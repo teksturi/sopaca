@@ -12,6 +12,7 @@ setup(
     python_requires=">=3.8, <4",
     install_requires=[
         "django",
+        "django_plotly_dash",
         "pandas",
         "plotly",
     ],

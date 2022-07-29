@@ -8,4 +8,7 @@ SPDX-License-Identifier: GPL-2.0-only
 
 {% block content %}
   <p>This is home page template</p>
+
+  {% load plotly_dash %}
+  {% plotly_app name="test" %}
 {% endblock %}

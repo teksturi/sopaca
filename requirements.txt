@@ -3,3 +3,4 @@
 # SPDX-License-Identifier: CC0-1.0
 
 Django==4.0.6
+django_plotly_dash
