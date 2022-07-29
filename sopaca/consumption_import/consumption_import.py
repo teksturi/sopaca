@@ -27,6 +27,9 @@ class consumptions:
         for p in self.__matches:
             print("Parser", p, "found match.")
 
+        if len(self.__matches) > 0:
+            self.consumption = p.parse(filename)
+
     def __find_parser_matches(self, filename):
         for parser in parsers.all():
             if parser.identify(filename):
