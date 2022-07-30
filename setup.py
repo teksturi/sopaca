@@ -11,11 +11,14 @@ setup(
     description="Website for calculating solar panel savings.",
     python_requires=">=3.8, <4",
     install_requires=[
+        "dash>=2.0.0",
         "django",
         "django_plotly_dash",
         "pandas",
         "plotly",
         "geopy",
+        # TODO: Remove this. This is for Heroku
+        "django_heroku",
     ],
     extras_require={
         "dev": [
