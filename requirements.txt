@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: CC0-1.0
 
 dash>=2.0.0
-Django==4.0.6
+Django==4.0.7
 # TODO: Remove this
 django_heroku
 django_plotly_dash
